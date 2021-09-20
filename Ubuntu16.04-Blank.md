@@ -12,142 +12,142 @@
 Bước 1: Tạo 1 storage để chạy VM. 
 - Chúng ta chọn `Computer` 
 
-![](../Images/create-image-ubuntu1604/Computer.png)
+![](Images/create-image-ubuntu1604/Computer.png)
 
 - Tại giao diện `kvm124` ta chọn phần `storages` sau đó chọn phân vùng tạo VM.
 
-![](../Images/create-image-ubuntu1604/storages.png)
+![](Images/create-image-ubuntu1604/storages.png)
 
 - Click chọn biểu tượng `+ `để thêm Volume: 
 
-![](../Images/create-image-ubuntu1604/add-storage.png)
+![](Images/create-image-ubuntu1604/add-storage.png)
 
 - Tiến hành đặt tên, chọn định dạng và chọn dung lượng cho VM. Sau khi hoàn thành bấm chọn `Create` để tạo Storage cho VM.
 
-![](../Images/create-image-ubuntu1604/create-storage.png)
+![](Images/create-image-ubuntu1604/create-storage.png)
 
 - Thông báo sau khi hoàn thành: 
 
-![](../Images/create-image-ubuntu1604/create-ok.png)
+![](Images/create-image-ubuntu1604/create-ok.png)
 
 Bước 2: Tạo VM
 
 - Vào ` Instances` tích vào dấu `+` để tạo mới VM
 
-![](../Images/create-image-ubuntu1604/new-instances.png)
+![](Images/create-image-ubuntu1604/new-instances.png)
 
 - Chọn ` Custom ` hoặc những mấu có sắm
 
-![](../Images/create-image-ubuntu1604/customer.png)
+![](Images/create-image-ubuntu1604/customer.png)
 
 - Tiến hành đặt ` teen`, chọn cấu hình `CPU` và `Ram`.
 
-![](../Images/create-image-ubuntu1604/info-instance.png)
+![](Images/create-image-ubuntu1604/info-instance.png)
 
 - Tại phần HDD, ta chọn volume đã tạo ở trên để tạo VM. Ở đây chọn vào `Storage` đã tạo trước đó ở bước 1:
 
-![](../Images/create-image-ubuntu1604/add-hdd.png)
+![](Images/create-image-ubuntu1604/add-hdd.png)
 
 - Chọn Network. Rồi click `Create`
 
-![](../Images/create-image-ubuntu1604/add-network-and-create.png)
+![](Images/create-image-ubuntu1604/add-network-and-create.png)
 
 Bước 3: Sau khi thành công sẽ hiển thị giao diện bên dưới. Chọn `Setting`
 
-![](../Images/create-image-ubuntu1604/setting.png)
+![](Images/create-image-ubuntu1604/setting.png)
 
 - Tiếp theo tiến hành chọn `Disk` và file `ISO` để tiến hành `Mount` và cài đặt `OS`
 
-![](../Images/create-image-ubuntu1604/mount-iso.png)
+![](Images/create-image-ubuntu1604/mount-iso.png)
 
 - Sang mục `Boot`. Tại mục `Boot Order`, ta sẽ chọn 2 phần `vda`, `hda`rồi click `Apply`
 
-![](../Images/create-image-ubuntu1604/boot.png)
+![](Images/create-image-ubuntu1604/boot.png)
 
 ### 2. Setup OS Ubuntu 16.04
 
 Bước 1: Quay sang màn hình `Power` bấm chọn `Power on`. Sau đó tích chọn ` Access` và chọn ` Console`
 - `Power on`
 
-![](../Images/create-image-ubuntu1604/power.png)
+![](Images/create-image-ubuntu1604/power.png)
 
 - ` Console`
 
-![](../Images/create-image-ubuntu1604/console.png)
+![](Images/create-image-ubuntu1604/console.png)
 
 Bước 2: Tiến hành cài đặt
 
-![](../Images/create-image-ubuntu1604/language.png)
+![](Images/create-image-ubuntu1604/language.png)
 
-![](../Images/create-image-ubuntu1604/1.png)
+![](Images/create-image-ubuntu1604/1.png)
 
-![](../Images/create-image-ubuntu1604/2.png)
+![](Images/create-image-ubuntu1604/2.png)
 
-![](../Images/create-image-ubuntu1604/3.png)
+![](Images/create-image-ubuntu1604/3.png)
 
-![](../Images/create-image-ubuntu1604/4.png)
+![](Images/create-image-ubuntu1604/4.png)
 
-![](../Images/create-image-ubuntu1604/5.png)
+![](Images/create-image-ubuntu1604/5.png)
 
-![](../Images/create-image-ubuntu1604/6.png)
+![](Images/create-image-ubuntu1604/6.png)
 
-![](../Images/create-image-ubuntu1604/7.png)
+![](Images/create-image-ubuntu1604/7.png)
 
-![](../Images/create-image-ubuntu1604/8.png)
+![](Images/create-image-ubuntu1604/8.png)
 
-![](../Images/create-image-ubuntu1604/9.png)
+![](Images/create-image-ubuntu1604/9.png)
 
-![](../Images/create-image-ubuntu1604/10.png)
+![](Images/create-image-ubuntu1604/10.png)
 
-![](../Images/create-image-ubuntu1604/11.png)
+![](Images/create-image-ubuntu1604/11.png)
 
-![](../Images/create-image-ubuntu1604/12.png)
+![](Images/create-image-ubuntu1604/12.png)
 
-![](../Images/create-image-ubuntu1604/13.png)
+![](Images/create-image-ubuntu1604/13.png)
 
-![](../Images/create-image-ubuntu1604/14.png)
+![](Images/create-image-ubuntu1604/14.png)
 
-![](../Images/create-image-ubuntu1604/15.png)
+![](Images/create-image-ubuntu1604/15.png)
 
-![](../Images/create-image-ubuntu1604/16.png)
+![](Images/create-image-ubuntu1604/16.png)
 
-![](../Images/create-image-ubuntu1604/17.png)
+![](Images/create-image-ubuntu1604/17.png)
 
-![](../Images/create-image-ubuntu1604/18.png)
+![](Images/create-image-ubuntu1604/18.png)
 
-![](../Images/create-image-ubuntu1604/19.png)
+![](Images/create-image-ubuntu1604/19.png)
 
-![](../Images/create-image-ubuntu1604/20.png)
+![](Images/create-image-ubuntu1604/20.png)
 
-![](../Images/create-image-ubuntu1604/21.png)
+![](Images/create-image-ubuntu1604/21.png)
 
-![](../Images/create-image-ubuntu1604/22.png)
+![](Images/create-image-ubuntu1604/22.png)
 
-![](../Images/create-image-ubuntu1604/23.png)
+![](Images/create-image-ubuntu1604/23.png)
 
-![](../Images/create-image-ubuntu1604/24.png)
+![](Images/create-image-ubuntu1604/24.png)
 
-![](../Images/create-image-ubuntu1604/25.png)
+![](Images/create-image-ubuntu1604/25.png)
 
-![](../Images/create-image-ubuntu1604/26.png)
+![](Images/create-image-ubuntu1604/26.png)
 
-![](../Images/create-image-ubuntu1604/27.png)
+![](Images/create-image-ubuntu1604/27.png)
 
-![](../Images/create-image-ubuntu1604/28.png)
+![](Images/create-image-ubuntu1604/28.png)
 
-![](../Images/create-image-ubuntu1604/29.png)
+![](Images/create-image-ubuntu1604/29.png)
 
-![](../Images/create-image-ubuntu1604/30.png)
+![](Images/create-image-ubuntu1604/30.png)
 
 
 Bước 3: Tắt máy ảo, xử lí trên KVM host
 - Shutdown máy để thực hiện remove CDROM
 
-![](../Images/create-image-ubuntu1604/force-off.png)
+![](Images/create-image-ubuntu1604/force-off.png)
 
 - Vào `Setting` chọn lại `Boot order`
 
-![](../Images/create-image-ubuntu1604/change-boot.png)
+![](Images/create-image-ubuntu1604/change-boot.png)
 
 - Chỉnh sửa file .xml của máy ảo, bổ sung thêm channel trong (để máy host giao tiếp với máy ảo sử dụng qemu-guest-agent), sau đó save lại
 
@@ -161,11 +161,11 @@ Bước 3: Tắt máy ảo, xử lí trên KVM host
  </channel>
 </devices>
 ```
-![](../Images/create-image-ubuntu1604/31.png)
+![](Images/create-image-ubuntu1604/31.png)
 
 > Nếu đã tồn tại `channel` đổi port channel này về `port='2'` và add channel bình thường
 
-![](../Images/create-image-ubuntu1604/change-port.png)
+![](Images/create-image-ubuntu1604/change-port.png)
 
 
 ### 3. Cài đặt và thiết lập các dịch vụ
@@ -262,7 +262,7 @@ EOF
 
 ```
 
-![](../Images/create-image-ubuntu1604/32.png)
+![](Images/create-image-ubuntu1604/32.png)
 
 - Cập nhật nameserver DNS tại file `/etc/resolv.conf`
 ```
@@ -277,11 +277,11 @@ nameserver 8.8.8.8
 Bước 4: tắt máy `Snapshot` lại để lưu trữ và đóng gói lại khi cần thiết
 - Shutdown VM
 
-![](../Images/create-image-ubuntu1604/force-off.png)
+![](Images/create-image-ubuntu1604/force-off.png)
 
 - Snapshot
 
-![](../Images/create-image-ubuntu1604/33.png)
+![](Images/create-image-ubuntu1604/33.png)
 
 Bước 5: gỡ cài đặt cloud-init và snap
 
@@ -326,7 +326,7 @@ sed -i 's|link-local 169.254.0.0|#link-local 169.254.0.0|g' /etc/networks
 ```
 dpkg-reconfigure cloud-init
 ```
-![](../Images/create-image-ubuntu1604/34.png)
+![](Images/create-image-ubuntu1604/34.png)
 - Disable Warning đối với EC2 trên Ubuntu 16
 ```
 touch /root/.cloud-warnings.skip
@@ -437,7 +437,7 @@ init 0
 ```
 Bước 13: tạo Snapshot (U16Blank)
 
-![](../Images/create-image-ubuntu1604/35.png)
+![](Images/create-image-ubuntu1604/35.png)
 
 
 ## 3. Nén Image Ubuntu 16.04 và tạo Image trên Openstack

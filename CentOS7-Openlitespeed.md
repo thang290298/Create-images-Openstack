@@ -18,30 +18,30 @@
 
 ### Bước 1. Khởi tạo ổ cứng sử dụng cho máy ảo:
 
-<img src = "..\Images\Centos7-app\1.png">
-<img src = "..\Images\Centos7-app\2.png">
-<img src = "..\Images\Centos7-app\3.png">
-<img src = "..\Images\Centos7-app\4.png">
+<img src = "Images\Centos7-app\1.png">
+<img src = "Images\Centos7-app\2.png">
+<img src = "Images\Centos7-app\3.png">
+<img src = "Images\Centos7-app\4.png">
 
 ### Bước 2. thực hiện khởi tạo VM
 -  `Instances` -> `+` sau đó thực hiện các bước khởi tạo sau: 
-<img src = "..\Images\Centos7-app\5.png">
-<img src = "..\Images\Centos7-app\6.png">
+<img src = "Images\Centos7-app\5.png">
+<img src = "Images\Centos7-app\6.png">
 
   - Lựa chọn `Custom` và điền các thông tin: Name, VCPU, RAM, HDD, Network rồi chọn `Create`:
-<img src = "..\Images\Centos7-app\7.png">
+<img src = "Images\Centos7-app\7.png">
 - Mount ISO tiến hành cài đặt OS
-<img src = "..\Images\Centos7-app\8.png">
+<img src = "Images\Centos7-app\8.png">
 - chỉnh lại thứ tự boot
-<img src = "..\Images\Centos7-app\9.png">
+<img src = "Images\Centos7-app\9.png">
 
 ### Bước 3. Tạo `Snapshots` trước khi cài đặt OS
-<img src = "..\Images\Centos7-app\12.png">
+<img src = "Images\Centos7-app\12.png">
 
 ### Bước 4. Bật máy ảo và Console vào để cài đặt OS
 
-<img src = "..\Images\Centos7-app\10.png">
-<img src = "..\Images\Centos7-app\11.png">
+<img src = "Images\Centos7-app\10.png">
+<img src = "Images\Centos7-app\11.png">
 
 ### Bước 5. Cài đặt OS
 - Chọn `Install CentOS7` để tiến hành cài đặt 
@@ -117,7 +117,7 @@
 
 Truy cập Settings > XML > EDIT SETTINGS
 
-<img src = "..\Images\Centos7-app\13.png">
+<img src = "Images\Centos7-app\13.png">
 
 Nếu đã tồn tại channel đổi port channel này về port='2' và add channel bình thường
 
@@ -382,14 +382,14 @@ firewall-cmd --reload
 ```
 - thay đổi port truy cập website từ **8088** sang port **80**. sửa file: `/usr/local/lsws/conf/httpd_config.conf`
 
-<img src = "..\Images\Centos7-app\15.png">
+<img src = "Images\Centos7-app\15.png">
 
 - Set admin console password :
 ```
 cd /usr/local/lsws/admin/misc
 sh admpass.sh
 ```
-<img src = "..\Images\Centos7-app\14.png">
+<img src = "Images\Centos7-app\14.png">
 
 - Thay đổi PHP version in openlitespeed
   - chỉnh sửa file `httpd_config.conf`
@@ -401,18 +401,18 @@ truy cập kiểm tra:
   - giao diện WebAdmin: http://IPserver:7080/
   account: admin
   pass: 0435626533aA
-<img src = "..\Images\Centos7-app\16.png">
+<img src = "Images\Centos7-app\16.png">
   - truy cập trang web: http://IPserver
 
-<img src = "..\Images\Centos7-app\17.png">
+<img src = "Images\Centos7-app\17.png">
 
   - kiểm tra phiển bản php8.0
 
-<img src = "..\Images\Centos7-app\18.png">
+<img src = "Images\Centos7-app\18.png">
 
   - login phpmyadmin
 
-<img src = "..\Images\Centos7-app\19.png">
+<img src = "Images\Centos7-app\19.png">
 
 #### Cách 2: Sử dụng script cài đặt ( one click )
 
