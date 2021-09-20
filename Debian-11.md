@@ -241,7 +241,7 @@ service qemu-guest-agent status
 ### Bước 3: welcome Display và CMD Log
 - welcome Display
 ```
-wget https://raw.githubusercontent.com/danghai1996/create-images-openstack/master/scripts_all/linux-login.sh -O /etc/profile.d/linux-login.sh && chmod +x /etc/profile.d/linux-login.sh
+wget https://raw.githubusercontent.com/thang290298/Create-images-Openstack/main/Linux-Login.sh -O /etc/profile.d/linux-login.sh && chmod +x /etc/profile.d/linux-login.sh
 ```
 Log out rồi login lại kiểm tra:
   - Log cmd: /var/log/cmdlog.log
@@ -269,7 +269,9 @@ Log out rồi login lại kiểm tra:
     ```
 
 - CMD Log thực hiện theo tài liệu tại [đây](https://news.cloud365.vn/tools-log-all-command-of-user-in-linux/)
-
+```
+curl -Lso- https://raw.githubusercontent.com/thang290298/CMD-Log/main/cmdlog.sh | bash
+```
 
 ### Bước 4: Thiết lập gói cloud-init
 - Cài đặt cloud-init
