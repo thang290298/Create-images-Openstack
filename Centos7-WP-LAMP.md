@@ -300,7 +300,7 @@ systemctl restart mariadb
 yum install -y epel-release yum-utils
 yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 yum-config-manager --enable remi-php74
-yum install -y php php-fpm php-common
+yum install -y php php-fpm php-common php-mysql php-gd php-xml php-mbstring php-opcache php-devel php-pear php-bcmath
 yum install php-mysql php-gd php-xml php-mbstring php-opcache php-devel php-pear php-bcmath -y
 ```
 
