@@ -708,28 +708,44 @@ echo "tmpfs                   /dev/shm                tmpfs   defaults,nodev,nos
 ## Phần III: Cài đặt một số dịch vụ cần thiết cho Template
 
 - Cài đặt acpid nhằm cho phép hypervisor có thể reboot hoặc shutdown instance.
-    ```
-    yum install acpid -y
-    systemctl enable acpid
-    ```
+
+``` sh 
+yum install acpid -y
+systemctl enable acpid
+```
 
 - Cài đặt qemu guest agent, kích hoạt và khởi động qemu-guest-agent service
-    ```
-    yum install -y qemu-guest-agent
-    systemctl enable qemu-guest-agent.service
-    systemctl start qemu-guest-agent.service
-    ```
 
-**Lưu ý:**
+``` sh 
+yum install -y qemu-guest-agent
+systemctl enable qemu-guest-agent.service
+systemctl start qemu-guest-agent.service
+```
 
-- Để sử sụng qemu-agent, phiên bản selinux phải > 3.12
-    ```
-    rpm -qa | grep -i selinux-policy
-    ```
-- Để có thể thay đổi password máy ảo thì phiên bản qemu-guest-agent phải >= 2.5.0
-    ```
-    qemu-ga --version
-    ```
+- Cài đặt cloud-init và cloud-utils:
+
+``` sh
+yum install -y cloud-init cloud-utils
+```
+
+> **Lưu ý:**
+> 
+> Để sử sụng qemu-agent, phiên bản selinux phải > 3.12
+> 
+> `rpm -qa | grep -i selinux-policy`
+> 
+> Để có thể thay đổi password máy ảo thì phiên bản qemu-guest-agent phải >= 2.5.0
+> 
+> `qemu-ga --version`
+
+- Cấu hình console
+
+Để sử dụng nova console-log, bạn cần thay đổi option cho `GRUB_CMDLINE_LINUX` và lưu lại 
+
+``` sh
+sed -i 's/GRUB_CMDLINE_LINUX="crashkernel=auto rhgb quiet"/GRUB_CMDLINE_LINUX="crashkernel=auto console=tty0 console=ttyS0,115200n8"/g' /etc/default/grub
+grub2-mkconfig -o /boot/grub2/grub.cfg
+```
 - Cài đặt CMDlog và  welcome Display
 ```
 curl -Lso- https://raw.githubusercontent.com/thang290298/CMD-Log/main/cmdlog.sh | bash
@@ -770,28 +786,64 @@ TH1: "sudoedit: /: not a regular file" -> sudo có lỗ hổng
 TH2:  "usage: sudoedit [-AknS] [-r role] [-t type] [-C num] [-g group] [-h host] [-p prompt] [-T timeout] [-u user] file" -> sudo đã được vá.
 ```
 
-- Cài đặt cloud-init và cloud-utils:
-    ```
-    yum install -y cloud-init cloud-utils
-    ```
-    Để máy ảo trên OpenStack có thể nhận được Cloud-init cần thay đổi cấu hình mặc định bằng cách sửa đổi file `/etc/cloud/cloud.cfg`.
-    ```
-    sed -i 's/disable_root: 1/disable_root: 0/g' /etc/cloud/cloud.cfg
-    sed -i 's/ssh_pwauth:   0/ssh_pwauth:   1/g' /etc/cloud/cloud.cfg
-    sed -i 's/name: centos/name: root/g' /etc/cloud/cloud.cfg
-    ```
-- Clean all
-    ```
-    yum clean all
+- Để máy ảo trên OpenStack có thể nhận được Cloud-init cần thay đổi cấu hình mặc định bằng cách sửa đổi file `/etc/cloud/cloud.cfg`. 
 
-    rm -f /var/log/wtmp /var/log/btmp
+``` sh
+sed -i 's/disable_root: 1/disable_root: 0/g' /etc/cloud/cloud.cfg
+sed -i 's/ssh_pwauth:   0/ssh_pwauth:   1/g' /etc/cloud/cloud.cfg
+sed -i 's/name: centos/name: root/g' /etc/cloud/cloud.cfg
+```
 
-    rm -f /root/.bash_history
+- Disable Default routing
 
-    > /var/log/cmdlog.log
+``` sh
+echo "NOZEROCONF=yes" >> /etc/sysconfig/network
+```
 
-    history -c
-    ```
+- Xóa thông tin card mạng
+``` sh
+rm -f /etc/sysconfig/network-scripts/ifcfg-eth0
+```
+
+- Để sau khi boot máy ảo, có thể nhận đủ các NIC gắn vào:
+
+```sh 
+cat << EOF >> /etc/rc.local
+for iface in \$(ip -o link | cut -d: -f2 | tr -d ' ' | grep ^eth)
+do
+   test -f /etc/sysconfig/network-scripts/ifcfg-\$iface
+   if [ \$? -ne 0 ]
+   then
+       touch /etc/sysconfig/network-scripts/ifcfg-\$iface
+       echo -e "DEVICE=\$iface\nBOOTPROTO=dhcp\nONBOOT=yes" > /etc/sysconfig/network-scripts/ifcfg-\$iface
+       ifup \$iface
+   fi
+done
+EOF
+```
+
+- Thêm quyền thực thi cho file `/etc/rc.local`
+```sh
+chmod +x /etc/rc.local 
+```
+
+- Xóa file hostname
+
+``` sh
+rm -f /etc/hostname
+```
+
+- Clean all 
+``` sh 
+yum clean all
+# Xóa last logged
+rm -f /var/log/wtmp /var/log/btmp
+# Xóa history 
+rm -f /root/.bash_history
+> /var/log/cmdlog.log
+history -c
+```
+
 
 > ## Tắt VM -> Snapshot: Final
 ## Phần IV: Xử lý image và upload
@@ -812,8 +864,8 @@ qemu-img convert -O raw ThangNV_CentOS7_OLS ThangNV_CentOS7_OLS.raw
 - Đẩy image lên hệ thống và sử dụng
 ```
 glance image-create --container-format bare --visibility=public \
---name ThangNV_CentOS7_OLS --disk-format raw \
---file /root/image-create-ops-test/ThangNV_CentOS7_OLS.raw --visibility=public \
+--name OPS_OLS_Template --disk-format raw \
+--file /root/image-create-ops-test/OPS_OLS_Template.raw --visibility=public \
 --property os_type=linux \
 --property hw_qemu_guest_agent=yes \
 --property vps_image_user=root \
