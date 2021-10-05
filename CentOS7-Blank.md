@@ -235,7 +235,10 @@ chmod +x /etc/rc.local
 ```sh sh
 rm -f /etc/hostname
 ```
-
+- chỉnh sử nameserver
+```sh
+vi /etc/resolv.conf
+```
 ### 8. Tạo Snapshot Begin
 
 # Phần III. Phần Cài đặt một số dịch vụ cần thiết cho Template
@@ -314,15 +317,11 @@ TH2:  "usage: sudoedit [-AknS] [-r role] [-t type] [-C num] [-g group] [-h host]
     ```
 - Clean all
 ```
-    yum clean all
-
-    rm -f /var/log/wtmp /var/log/btmp
-
-    rm -f /root/.bash_history
-
-    > /var/log/cmdlog.log
-
-    history -c
+yum clean all
+rm -f /var/log/wtmp /var/log/btmp
+rm -f /root/.bash_history
+> /var/log/cmdlog.log
+history -c
 ```
 # Phần III. Tổi ưu và dẩy images
 

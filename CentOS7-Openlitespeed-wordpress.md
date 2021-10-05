@@ -323,7 +323,6 @@ Log out rồi login lại kiểm tra:
   - Giao diện sau khi login:
       ```
     Welcome to Cloud365 | nhanhoa.com
-
     Tue 23 Mar 2021 03:04:17 PM +07
 
     ______ __                   __ _____  _____  ______
