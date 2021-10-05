@@ -46,70 +46,69 @@
 ### Bước 5. Cài đặt OS
 - Chọn `Install CentOS7` để tiến hành cài đặt 
 
-![](../Images/create-image-Centos7-WP-LAMP/1.png)
+![](Images/create-image-Centos7-WP-LAMP/1.png)
 
 
 - Cấu hình ngôn ngữ chọn `English(English)`
 
-![](../Images/create-image-Centos7-WP-LAMP/2.png)
+![](Images/create-image-Centos7-WP-LAMP/2.png)
 
 - Cấu hình timezone về Ho_Chi_Minh
 
-![](../Images/create-image-Centos7-WP-LAMP/3.png)
+![](Images/create-image-Centos7-WP-LAMP/3.png)
 
-![](../Images/create-image-Centos7-WP-LAMP/4.png)
+![](Images/create-image-Centos7-WP-LAMP/4.png)
 
 - Cấu hình disk để cài đặt 
 
-![](../Images/create-image-Centos7-WP-LAMP/5.png)
+![](Images/create-image-Centos7-WP-LAMP/5.png)
 
-![](../Images/create-image-Centos7-WP-LAMP/6.png)
+![](Images/create-image-Centos7-WP-LAMP/6.png)
 
 - Chọn `Standard Partition` cho ổ disk 
 
-![](../Images/create-image-Centos7-WP-LAMP/7.png)
+![](Images/create-image-Centos7-WP-LAMP/7.png)
 
 - Cấu hình mount point `/` cho toàn bộ disk
 
-![](../Images/create-image-Centos7-WP-LAMP/8.png)
+![](Images/create-image-Centos7-WP-LAMP/8.png)
 
 - Định dạng lại `ext4` cho phân vùng
 
-![](../Images/create-image-Centos7-WP-LAMP/9.png)
+![](Images/create-image-Centos7-WP-LAMP/9.png)
 
-![](../Images/create-image-Centos7-WP-LAMP/10.png)
 
 - Kết thúc quá trình cấu hình disk 
 
-![](../Images/create-image-Centos7-WP-LAMP/11.png)
+![](Images/create-image-Centos7-WP-LAMP/11.png)
 
 - Confirm quá trình chia lại partition cho disk 
 
-![](../Images/create-image-Centos7-WP-LAMP/12.png)
+![](Images/create-image-Centos7-WP-LAMP/12.png)
 
 - Cấu hình network 
 
-![](../Images/create-image-Centos7-WP-LAMP/13.png)
+![](Images/create-image-Centos7-WP-LAMP/13.png)
 
 - Turn on network cho interface và set hostname
 
-![](../Images/create-image-Centos7-WP-LAMP/14.png)
+![](Images/create-image-Centos7-WP-LAMP/14.png)
 
 - Kết thúc cấu hình, bắt đầu quá trình cài đặt OS
 
-![](../Images/create-image-Centos7-WP-LAMP/15.png)
+![](Images/create-image-Centos7-WP-LAMP/15.png)
 
 - Setup passwd cho root
 
-![](../Images/create-image-Centos7-WP-LAMP/16.png)
+![](Images/create-image-Centos7-WP-LAMP/16.png)
 
 
-![](../Images/create-image-Centos7-WP-LAMP/17.png)
+![](Images/create-image-Centos7-WP-LAMP/17.png)
 
 
 - Reboot lại VM sau khi cài đặt hoàn tất
 
-![](../Images/create-image-Centos7-WP-LAMP/18.png)
+![](Images/create-image-Centos7-WP-LAMP/18.png)
 
 ### Bước 6. Chỉnh sửa file XML VM Lưu ý:
 
@@ -121,7 +120,7 @@ Truy cập Settings > XML > EDIT SETTINGS
 
 Nếu đã tồn tại channel đổi port channel này về port='2' và add channel bình thường
 
-![](../Images/create-image-ubuntu20.04/29.png)
+![](Images/create-image-ubuntu20.04/29.png)
 
 Định dạng
 ```shsh
