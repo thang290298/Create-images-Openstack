@@ -230,7 +230,7 @@ echo "NOZEROCONF=yes" >> /etc/sysconfig/network
 
 - Xóa thông tin card mạng
 ``` sh
-rm -f /etc/sysconfig/network-scripts/ifcfg-eth0
+rm -f /etc/sysconfig/network-scripts/ifcfg-ens3
 ```
 
 - Để sau khi boot máy ảo, có thể nhận đủ các NIC gắn vào:
