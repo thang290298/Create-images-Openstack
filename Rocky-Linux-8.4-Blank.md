@@ -1,115 +1,113 @@
-# Tài liệu đóng Image CentOS7 Blank
-# Phần I. Khởi tạo Host
-## Bước 1: Trên KVM host tạo máy ảo CentOS7
+# Tài liệu đóng Image Rocky Linux 8.4 + Openlitespeed
 
-### 1. Khởi tạo ổ cứng sử dụng cho máy ảo:
+## Phần I: Trên KVM host tạo máy ảo Rocky Linux 8.4
+
+### Bước 1. Khởi tạo ổ cứng sử dụng cho máy ảo:
 
 <img src = "Images\Centos7-app\1.png">
 <img src = "Images\Centos7-app\2.png">
 <img src = "Images\Centos7-app\3.png">
-<img src = "Images\Centos7-app\4.png">
+<img src = "Images\Rocky-Linux\1.png">
 
-### 2. thực hiện khởi tạo VM
+### Bước 2. thực hiện khởi tạo VM
 -  `Instances` -> `+` sau đó thực hiện các bước khởi tạo sau: 
 <img src = "Images\Centos7-app\5.png">
 <img src = "Images\Centos7-app\6.png">
 
   - Lựa chọn `Custom` và điền các thông tin: Name, VCPU, RAM, HDD, Network rồi chọn `Create`:
-<img src = "Images\Centos7-app\7.png">
+<img src = "Images\Rocky-Linux\2.png">
 - Mount ISO tiến hành cài đặt OS
-<img src = "Images\Centos7-app\8.png">
+<img src = "Images\Rocky-Linux\3.png">
 - chỉnh lại thứ tự boot
-<img src = "Images\Centos7-app\9.png">
+<img src = "Images\Rocky-Linux\4.png">
 
-### 3. Tạo `Snapshots` trước khi cài đặt OS
-<img src = "Images\Centos7-app\12.png">
+### Bước 3. Tạo `Snapshots` trước khi cài đặt OS
+<img src = "Images\Rocky-Linux\5.png">
 
-### 4. Bật máy ảo và Console vào để cài đặt OS
+### Bước 4. Bật máy ảo và Console vào để cài đặt OS
 
-<img src = "Images\Centos7-app\10.png">
-<img src = "Images\Centos7-app\11.png">
+<img src = "Images\Rocky-Linux\6.png">
+<img src = "Images\Rocky-Linux\7.png">
 
-## Bước 2: Cài Đặt Centos 7
+### Bước 5. Cài đặt OS
+- Chọn `Install Rocky Linux 8.4` để tiến hành cài đặt 
 
-### 1. Cài đặt OS
-- Chọn `Install CentOS7` để tiến hành cài đặt 
-
-![](Images/create-image-Centos7-WP-LAMP/1.png)
+<img src = "Images/Rocky-Linux/8.png">
 
 
 - Cấu hình ngôn ngữ chọn `English(English)`
 
-![](Images/create-image-Centos7-WP-LAMP/2.png)
+<img src = "Images/Rocky-Linux/9.png">
 
 - Cấu hình timezone về Ho_Chi_Minh
 
-![](Images/create-image-Centos7-WP-LAMP/3.png)
+<img src = "Images/Rocky-Linux/10.png">
 
-![](Images/create-image-Centos7-WP-LAMP/4.png)
+<img src = "Images/Rocky-Linux/11.png">
 
 - Cấu hình disk để cài đặt 
 
-![](Images/create-image-Centos7-WP-LAMP/5.png)
+<img src = "Images/Rocky-Linux/12.png">
 
-![](Images/create-image-Centos7-WP-LAMP/6.png)
+<img src = "Images/Rocky-Linux/13.png">
 
 - Chọn `Standard Partition` cho ổ disk 
 
-![](Images/create-image-Centos7-WP-LAMP/7.png)
+<img src = "Images/Rocky-Linux/14.png">
 
 - Cấu hình mount point `/` cho toàn bộ disk
 
-![](Images/create-image-Centos7-WP-LAMP/8.png)
+<img src = "Images/Rocky-Linux/15.png">
 
 - Định dạng lại `ext4` cho phân vùng
 
-![](Images/create-image-Centos7-WP-LAMP/9.png)
+<img src = "Images/Rocky-Linux/16.png">
 
-![](Images/create-image-Centos7-WP-LAMP/10.png)
 
 - Kết thúc quá trình cấu hình disk 
 
-![](Images/create-image-Centos7-WP-LAMP/11.png)
+<img src = "Images/Rocky-Linux/17.png">
 
-- Confirm quá trình chia lại partition cho disk 
-
-![](Images/create-image-Centos7-WP-LAMP/12.png)
 
 - Cấu hình network 
 
-![](Images/create-image-Centos7-WP-LAMP/13.png)
+<img src = "Images/Rocky-Linux/18.png">
 
 - Turn on network cho interface và set hostname
 
-![](Images/create-image-Centos7-WP-LAMP/14.png)
+<img src = "Images/Rocky-Linux/19.png">
+
+- thay đổi Software Selection : ` Minimal Install`
+
+<img src = "Images/Rocky-Linux/21.png">
+<img src = "Images/Rocky-Linux/20.png">
+
+- - Setup passwd cho root
+
+<img src = "Images/Rocky-Linux/22.png">
+
+
+<img src = "Images/Rocky-Linux/23.png">
 
 - Kết thúc cấu hình, bắt đầu quá trình cài đặt OS
 
-![](Images/create-image-Centos7-WP-LAMP/15.png)
-
-- Setup passwd cho root
-
-![](Images/create-image-Centos7-WP-LAMP/16.png)
-
-
-![](Images/create-image-Centos7-WP-LAMP/17.png)
-
+<img src = "Images/Rocky-Linux/24.png">
 
 - Reboot lại VM sau khi cài đặt hoàn tất
 
-![](Images/create-image-Centos7-WP-LAMP/18.png)
+<img src = "Images/Rocky-Linux/25.png">
 
-### 2. Chỉnh sửa file XML VM Lưu ý:
+### Bước 6. Chỉnh sửa file XML VM Lưu ý:
 
 - Chỉnh sửa file .xml của máy ảo, bổ sung thêm channel trong (để máy host giao tiếp với máy ảo sử dụng qemu-guest-agent), sau đó save lại
 
 Truy cập Settings > XML > EDIT SETTINGS
 
-<img src = "Images\Centos7-app\13.png">
+<img src = "Images\Rocky-Linux\26.png">
 
 Nếu đã tồn tại channel đổi port channel này về port='2' và add channel bình thường
 
-![](Images/create-image-ubuntu20.04/29.png)
+<img src = "Images/create-image-ubuntu20.04/29.png">
 
 Định dạng
 ```shsh
@@ -120,18 +118,16 @@ Nếu đã tồn tại channel đổi port channel này về port='2' và add ch
 </channel>
 </devices>
 ```
-# Phần II: Setup môi trường cơ bản CentOS7
-
-## 1. Cấu hình và cài đặt các gói
+## Phần II: Cài đặt môi trường
+### Bước 1. Cấu hình và cài đặt các gói
 Cài đặt `epel-release` và update
 ```sh
-yum install epel-release -y
-yum update -y
-yum install -y wget
-sudo yum  install zip unzip -y
+dnf install epel-release -y
+dnf update -y
+sudo dnf  install zip unzip wget -y
 ```
 
-## 2. Disable firewalld, SElinux
+### 2. Disable firewalld, SElinux
 ```sh
 systemctl disable firewalld
 systemctl stop firewalld
@@ -144,14 +140,8 @@ sed -i 's/SELINUX=permissive/SELINUX=disabled/g' /etc/selinux/config
 
 Reboot kiểm tra lại firewalld và SElinux
 
-## 3. Cấu hình Network
-Disable NetworkManager, sử dụng network service
-```sh
-systemctl disable NetworkManager
-systemctl stop NetworkManager
-systemctl enable network
-systemctl start network
-```
+### Bước 3. Cấu hình Network
+
 
 Disable IPv6:
 ```sh
@@ -167,50 +157,85 @@ cat /proc/sys/net/ipv6/conf/all/disable_ipv6
 
 Lưu ý: Kết quả ra `1` => Tắt thành công, `0` tức IPv6 vẫn bật
 
-## 4. Cấu hình SSH
+### Bước 4. Cấu hình SSH
 ```sh
 sed -i 's/#ListenAddress 0.0.0.0/ListenAddress 0.0.0.0/g' /etc/ssh/sshd_config 
 sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config 
 systemctl restart sshd
 ```
 
-## 5. Điều chỉnh timezone
+### Bước 5. Điều chỉnh timezone
 Đổi timezone về `Asia/Ho_Chi_Minh`
 ```sh
 timedatectl set-timezone Asia/Ho_Chi_Minh
 ```
-## 6. Cài đặt chronyd
+### Bước 6. Cài đặt chronyd
 ```sh
-yum install chrony -y
+dnf install chrony -y
 sed -i 's|server 1.vn.pool.ntp.org iburst|server 162.159.200.123 iburst|g' /etc/chrony.conf
 systemctl enable --now chronyd 
 hwclock --systohc
 ```
+### Bước 7. Thay đổi nameserver
+`vi /etc/resolv.conf`
+```sh
+# Generated by NetworkManager
+search localdomain
+nameserver 8.8.8.8
+```
+`chattr +i /etc/resolv.conf`
+### Bước 8. Tạo Snapshot Begin
 
-## 7. Cấu hình console và network
+## Phần II: Cài đặt một số dịch vụ cần thiết cho Template
 
-Để sử dụng nova console-log, bạn cần thay đổi option cho `GRUB_CMDLINE_LINUX` và lưu lại 
+- Cài đặt acpid nhằm cho phép hypervisor có thể reboot hoặc shutdown instance.
 
-```sh sh
-sed -i 's/GRUB_CMDLINE_LINUX="crashkernel=auto rhgb quiet"/GRUB_CMDLINE_LINUX="crashkernel=auto console=tty0 console=ttyS0,115200n8"/g' /etc/default/grub
-grub2-mkconfig -o /boot/grub2/grub.cfg
+``` sh 
+dnf install acpid -y
+systemctl enable acpid
+```
+
+- Cài đặt qemu guest agent, kích hoạt và khởi động qemu-guest-agent service
+
+``` sh 
+dnf install -y qemu-guest-agent
+systemctl enable qemu-guest-agent.service
+systemctl start qemu-guest-agent.service
 ```
 
 
+> **Lưu ý:**
+> 
+> Để sử sụng qemu-agent, phiên bản selinux phải > 3.12
+> 
+> `rpm -qa | grep -i selinux-policy`
+> 
+> Để có thể thay đổi password máy ảo thì phiên bản qemu-guest-agent phải >= 2.5.0
+> 
+> `qemu-ga --version`
+
+- Cấu hình console
+
+Để sử dụng nova console-log, bạn cần thay đổi option cho `GRUB_CMDLINE_LINUX` và lưu lại 
+
+``` sh
+sed -i 's/GRUB_CMDLINE_LINUX="crashkernel=auto"/GRUB_CMDLINE_LINUX="crashkernel=auto console=tty0 console=ttyS0,115200n8"/g' /etc/default/grub
+grub2-mkconfig -o /boot/grub2/grub.cfg
+```
 - Disable Default routing
 
-```sh sh
+``` sh
 echo "NOZEROCONF=yes" >> /etc/sysconfig/network
 ```
 
 - Xóa thông tin card mạng
-```sh sh
-rm -f /etc/sysconfig/network-scripts/ifcfg-eth0
+``` sh
+rm -f /etc/sysconfig/network-scripts/ifcfg-ens3
 ```
 
 - Để sau khi boot máy ảo, có thể nhận đủ các NIC gắn vào:
 
-```shsh 
+```sh 
 cat << EOF >> /etc/rc.local
 for iface in \$(ip -o link | cut -d: -f2 | tr -d ' ' | grep ^eth)
 do
@@ -224,47 +249,6 @@ do
 done
 EOF
 ```
-
-- Thêm quyền thực thi cho file `/etc/rc.local`
-```sh
-chmod +x /etc/rc.local 
-```
-
-- Xóa file hostname
-
-```sh sh
-rm -f /etc/hostname
-```
-- chỉnh sử nameserver
-```sh
-vi /etc/resolv.conf
-```
-### 8. Tạo Snapshot Begin
-
-# Phần III. Phần Cài đặt một số dịch vụ cần thiết cho Template
-- Cài đặt acpid nhằm cho phép hypervisor có thể reboot hoặc shutdown instance.
-    ```
-    yum install acpid -y
-    systemctl enable acpid
-    ```
-
-- Cài đặt qemu guest agent, kích hoạt và khởi động qemu-guest-agent service
-    ```
-    yum install -y qemu-guest-agent
-    systemctl enable qemu-guest-agent.service
-    systemctl start qemu-guest-agent.service
-    ```
-
-**Lưu ý:**
-
-- Để sử sụng qemu-agent, phiên bản selinux phải > 3.12
-    ```
-    rpm -qa | grep -i selinux-policy
-    ```
-- Để có thể thay đổi password máy ảo thì phiên bản qemu-guest-agent phải >= 2.5.0
-    ```
-    qemu-ga --version
-    ```
 - Cài đặt CMDlog và  welcome Display
 ```
 curl -Lso- https://raw.githubusercontent.com/thang290298/CMD-Log/main/cmdlog.sh | bash
@@ -304,48 +288,67 @@ sudoedit -s /
 TH1: "sudoedit: /: not a regular file" -> sudo có lỗ hổng
 TH2:  "usage: sudoedit [-AknS] [-r role] [-t type] [-C num] [-g group] [-h host] [-p prompt] [-T timeout] [-u user] file" -> sudo đã được vá.
 ```
-
 - Cài đặt cloud-init và cloud-utils:
-    ```
-    yum install -y cloud-init cloud-utils
-    ```
-    Để máy ảo trên OpenStack có thể nhận được Cloud-init cần thay đổi cấu hình mặc định bằng cách sửa đổi file `/etc/cloud/cloud.cfg`.
-    ```
-    sed -i 's/disable_root: 1/disable_root: 0/g' /etc/cloud/cloud.cfg
-    sed -i 's/ssh_pwauth:   0/ssh_pwauth:   1/g' /etc/cloud/cloud.cfg
-    sed -i 's/name: centos/name: root/g' /etc/cloud/cloud.cfg
-    ```
-- Clean all
+
+``` sh
+dnf -y install bash-completion vim cloud-utils-growpart wget redhat-lsb-core cloud-init 
 ```
-yum clean all
+- Để máy ảo trên OpenStack có thể nhận được Cloud-init cần thay đổi cấu hình mặc định bằng cách sửa đổi file `/etc/cloud/cloud.cfg`. 
+
+``` sh
+sed -i 's/disable_root: 1/disable_root: 0/g' /etc/cloud/cloud.cfg
+sed -i 's/ssh_pwauth:   0/ssh_pwauth:   1/g' /etc/cloud/cloud.cfg
+sed -i 's/name: cloud-user/name: root/g' /etc/cloud/cloud.cfg
+```
+
+
+- Thêm quyền thực thi cho file `/etc/rc.local`
+```sh
+chmod +x /etc/rc.local 
+```
+
+- Xóa file hostname
+
+``` sh
+rm -f /etc/hostname
+```
+
+- Clean all 
+``` sh 
+dnf clean all
+# Xóa last logged
 rm -f /var/log/wtmp /var/log/btmp
+# Xóa history 
 rm -f /root/.bash_history
 > /var/log/cmdlog.log
 history -c
 ```
+
+
+> ## Tắt VM -> Snapshot: Final
 # Phần III. Tổi ưu và dẩy images
 
 ### Bước 1: Sử dụng lệnh virt-sysprep để xóa toàn bộ các thông tin máy ảo
 
 ```
-virt-sysprep -d OPS_Template_CentOS7
+virt-sysprep -d OPS_Rocky_Linux_Temp
 ```
 
 ### Bước 2: Tối ưu kích thước image:
 ```
-virt-sparsify --compress --convert qcow2 /var/lib/libvirt/images/OPS_Template_CentOS7.qcow2 OPS_Template_CentOS7
+virt-sparsify --compress --convert qcow2 /var/lib/libvirt/images/OPS_Rocky_Linux_Template.qcow2 OPS_Rocky_Linux_Template
 ```
 
 ### Bước 3: Upload image lên glance và sử dụng
 - trước tiên cần Coppy file images sang note Controller
 - Convert images về định dạng raw
 ```
-qemu-img convert -O raw OPS_Template_CentOS7 OPS_Template_CentOS7.raw
+qemu-img convert -O raw OPS_Rocky_Linux_Template OPS_Rocky_Linux_Template.raw
 ```
 - Đẩy image lên hệ thống và sử dụng
 ```
-glance image-create --name OPS_Template_CentOS7 \
---file /root/image-create-ops-test/OPS_Template_CentOS7.raw \
+glance image-create --name OPS_Rocky_Linux_Template \
+--file /root/image-create-ops-test/OPS_Rocky_Linux_Template.raw \
 --disk-format raw \
 --container-format bare \
 --visibility=public \
