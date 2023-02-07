@@ -328,7 +328,7 @@ snap list
 ```
 ![](../Images/create-image-ubuntu20.04/32.png)
 
-Để xóa, ta sử dụng lệnh `snap remove <package>`: `lxd` -> `core18` -> `snapd`
+Để xóa, ta sử dụng lệnh `snap remove <package>`: `lxd` -> `core20` -> `snapd`
 ```
 snap remove lxd
 snap remove core20
@@ -358,6 +358,7 @@ df -H
 
 Xóa file cấu hình cloud-init cũ
 ```
+sudo apt purge cloud-init -y
 rm -rf /etc/cloud/
 rm -rf /var/lib/cloud/
 ```
