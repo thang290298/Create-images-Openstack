@@ -1,114 +1,118 @@
-# Hướng dẫn đóng image Ubuntu 20.04 với cloud-init và QEMU Guest Agent (không dùng LVM)
+# Hướng dẫn đóng image Ubuntu 22.04 với cloud-init và QEMU Guest Agent (không dùng LVM)
 
 ## Chú ý:
 
 - Hướng dẫn này dành cho các image không sử dụng LVM
 - Sử dụng công cụ virt-manager hoặc web-virt để kết nối tới console máy ảo
-- OS cài đặt KVM là Ubuntu 20.04
+- OS cài đặt KVM là Ubuntu 22.04
 - Hướng dẫn bao gồm 2 phần chính: thực hiện trên máy ảo cài OS và thực hiện trên KVM Host
 
-## Phần 1: Tạo mới VM Ubuntu 20.04 (WebvirtCloud)
+## Phần 1: Tạo mới VM Ubuntu 22.04 (WebvirtCloud)
 
 ### Bước 1: Tạo mới disk
+- Thực hiện chạy lệnh khởi tạo volume sử dụng: `qemu-img`
 
-![](../Images/create-image-ubuntu20.04/1.png)
+```sh
+qemu-img create -f qcow2 /kvm/Ubuntu2204_x86_64.qcow2 10G
+```
+![](../Images/Ubuntu2204/1.png)
 
 ### Bước 2: Tạo mới VM với cấu hình 2 vCPU, 2 GB RAM
 
-![](../Images/create-image-ubuntu20.04/2.png)
+![](../Images/Ubuntu2204/2.png)
 
 ### Bước 3: Snapshot VM (NoOS)
 
-![](../Images/create-image-ubuntu20.04/3.png)
+![](../Images/Ubuntu2204/3.png)
 
-### Bước 4: Mount bản cài Ubuntu 20.04
+### Bước 4: Mount bản cài Ubuntu 22.04
 
-![](../Images/create-image-ubuntu20.04/4.png)
+![](../Images/Ubuntu2204/4.png)
 
 ### Bước 5: Khởi động VM
-![](../Images/create-image-ubuntu20.04/5.png)
+![](../Images/Ubuntu2204/5.png)
 
 ### Bước 6: Truy cập Console
 
 
-![](../Images/create-image-ubuntu20.04/6.png)
+![](../Images/Ubuntu2204/6.png)
 
-### Bước 7: Cài đặt Ubuntu 20.04 với các lựa chọn như sau
+### Bước 7: Cài đặt Ubuntu 22.04 với các lựa chọn như sau
 
 Chọn `English`
 
-![](../Images/create-image-ubuntu20.04/7.png)
+![](../Images/Ubuntu2204/7.png)
 
 Chọn `Continue without updating`
 
-![](../Images/create-image-ubuntu20.04/8.png)
+![](../Images/Ubuntu2204/8.png)
 
 Chọn `Done`
 
-![](../Images/create-image-ubuntu20.04/9.png)
+![](../Images/Ubuntu2204/9.png)
 
 Chọn `Done`
 
-![](../Images/create-image-ubuntu20.04/10.png)
+![](../Images/Ubuntu2204/10.png)
 
 Chọn `Done`
 
-![](../Images/create-image-ubuntu20.04/11.png)
+![](../Images/Ubuntu2204/11.png)
 
 Chọn `Done`
 
-![](../Images/create-image-ubuntu20.04/12.png)
+![](../Images/Ubuntu2204/12.png)
 
 Chọn `Use an entire disk` > `Done`. Lưu ý: KHÔNG DÙNG OPTION THIẾT LẬP DISK dạng LVM
 
-![](../Images/create-image-ubuntu20.04/13.png)
+![](../Images/Ubuntu2204/13.png)
 
 Chọn `Done`
 
-![](../Images/create-image-ubuntu20.04/14.png)
+![](../Images/Ubuntu2204/14.png)
 
 Chọn `Continue` để tiếp tục.
-![](../Images/create-image-ubuntu20.04/15.png)
+![](../Images/Ubuntu2204/15.png)
 
 Điền các thông tin cho máy ảo. User mặc định được sử dụng là ubuntu.
 
-![](../Images/create-image-ubuntu20.04/16.png)
+![](../Images/Ubuntu2204/16.png)
 
 Chọn cài đặt `Install OpenSSH Server`.
 
-![](../Images/create-image-ubuntu20.04/17.png)
+![](../Images/Ubuntu2204/17.png)
 
 Bỏ qua các option, kéo xuống chọn `Done`.
 
-![](../Images/create-image-ubuntu20.04/18.png)
+![](../Images/Ubuntu2204/18.png)
 
-Quá trình cài đặt Ubuntu 20.04 bắt đầu.
+Quá trình cài đặt Ubuntu 22.04 bắt đầu.
 
-![](../Images/create-image-ubuntu20.04/19.png)
+![](../Images/Ubuntu2204/19.png)
 
 Chọn `Cancel update and reboot`, lưu ý ĐỢI VM REBOOT VÀO ĐƯỢC OS RỒI MỚI THỰC HIỆN BƯỚC TIẾP THEO
 
-![](../Images/create-image-ubuntu20.04/20.png)
+![](../Images/Ubuntu2204/22.png)
 
 Kết quả
 
-![](../Images/create-image-ubuntu20.04/21.png)
+![](../Images/Ubuntu2204/21.png)
 
 ### Bước 8: Tắt VM, chỉnh lại BOOT OPTION
 
-![](../Images/create-image-ubuntu20.04/22.png)
+![](../Images/Ubuntu2204/22.png)
 
-![](../Images/create-image-ubuntu20.04/23.png)
+![](../Images/Ubuntu2204/23.png)
 
 ### Bước 9: Truy cập VM, kiểm tra các dịch vụ
 
 Login
 
-![](../Images/create-image-ubuntu20.04/24.png)
+![](../Images/Ubuntu2204/24.png)
 
 Kiểm tra dịch vụ SSH
 
-![](../Images/create-image-ubuntu20.04/25.png)
+![](../Images/Ubuntu2204/25.png)
 
 
 Lưu ý nếu dịch vụ SSH không khởi động được, thực hiện
@@ -118,12 +122,12 @@ sudo systemctl restart sshd
 ```
 
 Kết quả
-![](../Images/create-image-ubuntu20.04/26.png)
+![](../Images/Ubuntu2204/26.png)
 
 
 ### Bước 10: Tắt VM, tạo Snapshot `PreSetupOS`
 
-![](../Images/create-image-ubuntu20.04/27.png)
+![](../Images/Ubuntu2204/27.png)
 
 
 ### Bước 11: Chỉnh sửa file XML VM
@@ -133,11 +137,11 @@ Lưu ý:
 
 Truy cập `Settings` > `XML` > `EDIT SETTINGS`
 
-![](../Images/create-image-ubuntu20.04/28.png)
+![](../Images/Ubuntu2204/28.png)
 
 Nếu đã tồn tại channel đổi port channel này về port='2' và add channel bình thường
 
-![](../Images/create-image-ubuntu20.04/29.png)
+![](../Images/Ubuntu2204/29.png)
 
 
 Định dạng
@@ -149,7 +153,7 @@ Nếu đã tồn tại channel đổi port channel này về port='2' và add ch
 </channel>
 </devices>
 ```
-## Phần 2: Chuẩn bị môi trường Image Ubuntu 20.04
+## Phần 2: Chuẩn bị môi trường Image Ubuntu 22.04
 
 ### Bước 1: Thiết lập SSH
 Login ssh với tài khoản `ubuntu`, chuyển user sudo
@@ -229,7 +233,7 @@ Kiểm tra swap:
 cat /proc/swaps
 
 Filename                                Type            Size    Used    Priority
-/swap.img                               file            2009084 780     -2
+/swap.img                               file            2209084 780     -2
 ```
 
 Xóa swap
@@ -297,9 +301,9 @@ Lưu ý
 
 ### Bước 8: Tắt VM, tạo snapshot `OSBegin`
 
-![](../Images/create-image-ubuntu20.04/30.png)
+![](../Images/Ubuntu2204/30.png)
 
-## Phần 3: Cài đặt dịch vụ cần thiết cho Image Ubuntu 20.04
+## Phần 3: Cài đặt dịch vụ cần thiết cho Image Ubuntu 22.04
 
 ### Bước 1: Cấu hình netplug
 
@@ -307,7 +311,7 @@ Lưu ý
 ```
 apt-get install netplug -y
 
-wget https://raw.githubusercontent.com/thang290298/Create-images-Openstack/main/scripts/Netplug_Ubuntu?token=GHSAT0AAAAAAB6MQQE7LBQDT2K36HLYQ4R6Y7BYXNQ -O netplug
+wget https://raw.githubusercontent.com/danghai1996/thuctapsinh/master/HaiDD/CreateImage/scripts/netplug_ubuntu -O netplug
 
 mv netplug /etc/netplug/netplug
 
@@ -320,18 +324,18 @@ Kiểm tra snap:
 df -H
 ```
 
-![](../Images/create-image-ubuntu20.04/31.png)
+![](../Images/Ubuntu2204/31.png)
 
 List danh sách snap
 ```
 snap list
 ```
-![](../Images/create-image-ubuntu20.04/32.png)
+![](../Images/Ubuntu2204/32.png)
 
 Để xóa, ta sử dụng lệnh `snap remove <package>`: `lxd` -> `core18` -> `snapd`
 ```
 snap remove lxd
-snap remove core20
+snap remove core18
 snap remove snapd
 ```
 
@@ -352,7 +356,7 @@ Kiểm tra lại:
 ```
 df -H
 ```
-![](../Images/create-image-ubuntu20.04/33.png)
+![](../Images/Ubuntu2204/33.png)
 
 ### Bước 3: Thiết lập gói cloud-init
 
@@ -381,7 +385,7 @@ Cấu hình datasource, bỏ chọn mục NoCloud bằng cách dùng dấu SPACE
 dpkg-reconfigure cloud-init
 ```
 
-![](../Images/create-image-ubuntu20.04/34.png)
+![](../Images/Ubuntu2204/34.png)
 
 
 Clean cấu hình và restart service
@@ -425,7 +429,7 @@ Log out rồi login lại kiểm tra:
       ```
     Welcome to Cloud365 | nhanhoa.com
 
-    Tue 23 Mar 2021 03:04:17 PM +07
+    Tue 23 Mar 2221 03:04:17 PM +07
 
     ______ __                   __ _____  _____  ______
     / ____// /____   __  __ ____/ /|__  / / ___/ / ____/
@@ -443,7 +447,7 @@ Log out rồi login lại kiểm tra:
 
     root@cloud:~# 
     ```
-Kiểm tra lỗ hổng CVE-2021 và dọn dẹp
+Kiểm tra lỗ hổng CVE-2221 và dọn dẹp
 ```
 sudoedit -s /
 ```
@@ -464,31 +468,31 @@ history -c
 ```
 init 0
 ```
-### Bước 7: Tắt VM và tạo Snapshot (U20Blank)
+### Bước 7: Tắt VM và tạo Snapshot (U22Blank)
 
-![](../Images/create-image-ubuntu20.04/35.png)
+![](../Images/Ubuntu2204/35.png)
 
 
-## Phần 4: Nén Image Ubuntu 20.04 và tạo Image trên Openstack
+## Phần 4: Nén Image Ubuntu 22.04 và tạo Image trên Openstack
 
 
 ### Bước 1: Xử dụng lệnh virt-sysprep để xóa toàn bộ các thông tin máy ảo
 
 ```
-virt-sysprep -d OPS_Template_Ubuntu2004
+virt-sysprep -d OPS_Template_ubuntu2224
 ```
 
 ### Bước 2: Tối ưu kích thước image:
 
 ```
-virt-sparsify --compress --convert qcow2 /var/lib/libvirt/../Images/OPS_Template_Ubuntu2004.qcow2 OPS_Template_Ubuntu2004
+virt-sparsify --compress --convert qcow2 /var/lib/libvirt/../Images/OPS_Template_ubuntu2224.qcow2 OPS_Template_ubuntu2224
 ```
 
 ### Bước 3: Upload image lên glance và sử dụng
 
 ```
-glance image-create --name OPS_Template_Ubuntu2004 \
---file /root/image-create-ops-test/OPS_Template_Ubuntu2004.raw \
+glance image-create --name OPS_Template_ubuntu2224 \
+--file /root/image-create-ops-test/OPS_Template_ubuntu2224.raw \
 --disk-format raw \
 --container-format bare \
 --visibility=public \
