@@ -307,7 +307,7 @@ Lưu ý
 ```
 apt-get install netplug -y
 
-wget https://raw.githubusercontent.com/thang290298/Create-images-Openstack/main/scripts/Netplug_Ubuntu?token=GHSAT0AAAAAAB6MQQE7LBQDT2K36HLYQ4R6Y7BYXNQ -O netplug
+wget https://raw.githubusercontent.com/danghai1996/thuctapsinh/master/HaiDD/CreateImage/scripts/netplug_ubuntu -O netplug
 
 mv netplug /etc/netplug/netplug
 
