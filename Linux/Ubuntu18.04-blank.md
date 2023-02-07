@@ -5,111 +5,110 @@
 - Hướng dẫn này dành cho các image không sử dụng LVM
 - Sử dụng công cụ virt-manager hoặc web-virt để kết nối tới console máy ảo
 - OS cài đặt KVM là Ubuntu 20.04
-- Phiên bản OpenStack sử dụng là Queens
 - Hướng dẫn bao gồm 2 phần chính: thực hiện trên máy ảo cài OS và thực hiện trên KVM Host
 
 ## Phần 1: Tạo mới VM Ubuntu 20.04 (WebvirtCloud)
 
 ### Bước 1: Tạo mới disk
 
-![](Images/create-image-ubuntu20.04/1.png)
+![](../../Images/Ubuntu18.04/1.png)
 
 ### Bước 2: Tạo mới VM với cấu hình 2 vCPU, 2 GB RAM
 
-![](Images/create-image-ubuntu20.04/2.png)
+![](../Images/Ubuntu18.04/2.png)
 
 ### Bước 3: Snapshot VM (NoOS)
 
-![](Images/create-image-ubuntu20.04/3.png)
+![](../Images/Ubuntu18.04/3.png)
 
 ### Bước 4: Mount bản cài Ubuntu 20.04
 
-![](Images/create-image-ubuntu20.04/4.png)
+![](../Images/Ubuntu18.04/4.png)
 
 ### Bước 5: Khởi động VM
-![](Images/create-image-ubuntu20.04/5.png)
+![](../Images/Ubuntu18.04/5.png)
 
 ### Bước 6: Truy cập Console
 
 
-![](Images/create-image-ubuntu20.04/6.png)
+![](../Images/Ubuntu18.04/6.png)
 
 ### Bước 7: Cài đặt Ubuntu 20.04 với các lựa chọn như sau
 
 Chọn `English`
 
-![](Images/create-image-ubuntu20.04/7.png)
+![](../Images/Ubuntu18.04/7.png)
 
 Chọn `Continue without updating`
 
-![](Images/create-image-ubuntu20.04/8.png)
+![](../Images/Ubuntu18.04/8.png)
 
 Chọn `Done`
 
-![](Images/create-image-ubuntu20.04/9.png)
+![](../Images/Ubuntu18.04/9.png)
 
 Chọn `Done`
 
-![](Images/create-image-ubuntu20.04/10.png)
+![](../Images/Ubuntu18.04/10.png)
 
 Chọn `Done`
 
-![](Images/create-image-ubuntu20.04/11.png)
+![](../Images/Ubuntu18.04/11.png)
 
 Chọn `Done`
 
-![](Images/create-image-ubuntu20.04/12.png)
+![](../Images/Ubuntu18.04/12.png)
 
 Chọn `Use an entire disk` > `Done`. Lưu ý: KHÔNG DÙNG OPTION THIẾT LẬP DISK dạng LVM
 
-![](Images/create-image-ubuntu20.04/13.png)
+![](../Images/Ubuntu18.04/13.png)
 
 Chọn `Done`
 
-![](Images/create-image-ubuntu20.04/14.png)
+![](../Images/Ubuntu18.04/14.png)
 
 Chọn `Continue` để tiếp tục.
-![](Images/create-image-ubuntu20.04/15.png)
+![](../Images/Ubuntu18.04/15.png)
 
 Điền các thông tin cho máy ảo. User mặc định được sử dụng là ubuntu.
 
-![](Images/create-image-ubuntu20.04/16.png)
+![](../Images/Ubuntu18.04/16.png)
 
 Chọn cài đặt `Install OpenSSH Server`.
 
-![](Images/create-image-ubuntu20.04/17.png)
+![](../Images/Ubuntu18.04/17.png)
 
 Bỏ qua các option, kéo xuống chọn `Done`.
 
-![](Images/create-image-ubuntu20.04/18.png)
+![](../Images/Ubuntu18.04/18.png)
 
 Quá trình cài đặt Ubuntu 20.04 bắt đầu.
 
-![](Images/create-image-ubuntu20.04/19.png)
+![](../Images/Ubuntu18.04/19.png)
 
 Chọn `Cancel update and reboot`, lưu ý ĐỢI VM REBOOT VÀO ĐƯỢC OS RỒI MỚI THỰC HIỆN BƯỚC TIẾP THEO
 
-![](Images/create-image-ubuntu20.04/20.png)
+![](../Images/Ubuntu18.04/20.png)
 
 Kết quả
 
-![](Images/create-image-ubuntu20.04/21.png)
+![](../Images/Ubuntu18.04/21.png)
 
 ### Bước 8: Tắt VM, chỉnh lại BOOT OPTION
 
-![](Images/create-image-ubuntu20.04/22.png)
+![](../Images/Ubuntu18.04/22.png)
 
-![](Images/create-image-ubuntu20.04/23.png)
+![](../Images/Ubuntu18.04/23.png)
 
 ### Bước 9: Truy cập VM, kiểm tra các dịch vụ
 
 Login
 
-![](Images/create-image-ubuntu20.04/24.png)
+![](../Images/Ubuntu18.04/24.png)
 
 Kiểm tra dịch vụ SSH
 
-![](Images/create-image-ubuntu20.04/25.png)
+![](../Images/Ubuntu18.04/25.png)
 
 
 Lưu ý nếu dịch vụ SSH không khởi động được, thực hiện
@@ -119,12 +118,12 @@ sudo systemctl restart sshd
 ```
 
 Kết quả
-![](Images/create-image-ubuntu20.04/26.png)
+![](../Images/Ubuntu18.04/26.png)
 
 
 ### Bước 10: Tắt VM, tạo Snapshot `PreSetupOS`
 
-![](Images/create-image-ubuntu20.04/27.png)
+![](../Images/Ubuntu18.04/27.png)
 
 
 ### Bước 11: Chỉnh sửa file XML VM
@@ -134,11 +133,11 @@ Lưu ý:
 
 Truy cập `Settings` > `XML` > `EDIT SETTINGS`
 
-![](Images/create-image-ubuntu20.04/28.png)
+![](../Images/Ubuntu18.04/28.png)
 
 Nếu đã tồn tại channel đổi port channel này về port='2' và add channel bình thường
 
-![](Images/create-image-ubuntu20.04/29.png)
+![](../Images/Ubuntu18.04/29.png)
 
 
 Định dạng
@@ -298,7 +297,7 @@ Lưu ý
 
 ### Bước 8: Tắt VM, tạo snapshot `OSBegin`
 
-![](Images/create-image-ubuntu20.04/30.png)
+![](../Images/Ubuntu18.04/30.png)
 
 ## Phần 3: Cài đặt dịch vụ cần thiết cho Image Ubuntu 20.04
 
@@ -321,13 +320,13 @@ Kiểm tra snap:
 df -H
 ```
 
-![](Images/create-image-ubuntu20.04/31.png)
+![](../Images/Ubuntu18.04/31.png)
 
 List danh sách snap
 ```
 snap list
 ```
-![](Images/create-image-ubuntu20.04/32.png)
+![](../Images/Ubuntu18.04/32.png)
 
 Để xóa, ta sử dụng lệnh `snap remove <package>`: `lxd` -> `core18` -> `snapd`
 ```
@@ -353,7 +352,7 @@ Kiểm tra lại:
 ```
 df -H
 ```
-![](Images/create-image-ubuntu20.04/33.png)
+![](../Images/Ubuntu18.04/33.png)
 
 ### Bước 3: Thiết lập gói cloud-init
 
@@ -382,7 +381,7 @@ Cấu hình datasource, bỏ chọn mục NoCloud bằng cách dùng dấu SPACE
 dpkg-reconfigure cloud-init
 ```
 
-![](Images/create-image-ubuntu20.04/34.png)
+![](../Images/Ubuntu18.04/34.png)
 
 
 Clean cấu hình và restart service
@@ -417,7 +416,7 @@ service qemu-guest-agent status
 ### Bước 5:Cài đặt CMDlog và  welcome Display
 ```
 curl -Lso- https://raw.githubusercontent.com/thang290298/CMD-Log/main/cmdlog.sh | bash
-wget https://raw.githubusercontent.com/thang290298/Create-images-Openstack/main/Linux-Login.sh -O /etc/profile.d/linux-login.sh && chmod +x /etc/profile.d/linux-login.sh
+wget https://raw.githubusercontent.com/thang290298/Create-../Images-Openstack/main/Linux-Login.sh -O /etc/profile.d/linux-login.sh && chmod +x /etc/profile.d/linux-login.sh
 
 ```
 Log out rồi login lại kiểm tra:
@@ -467,7 +466,7 @@ init 0
 ```
 ### Bước 7: Tắt VM và tạo Snapshot (U20Blank)
 
-![](Images/create-image-ubuntu20.04/35.png)
+![](../Images/Ubuntu18.04/35.png)
 
 
 ## Phần 4: Nén Image Ubuntu 20.04 và tạo Image trên Openstack
@@ -482,7 +481,7 @@ virt-sysprep -d OPS_Template_Ubuntu2004
 ### Bước 2: Tối ưu kích thước image:
 
 ```
-virt-sparsify --compress --convert qcow2 /var/lib/libvirt/images/OPS_Template_Ubuntu2004.qcow2 OPS_Template_Ubuntu2004
+virt-sparsify --compress --convert qcow2 /var/lib/libvirt/../Images/OPS_Template_Ubuntu2004.qcow2 OPS_Template_Ubuntu2004
 ```
 
 ### Bước 3: Upload image lên glance và sử dụng
