@@ -188,8 +188,8 @@ Login lại bằng user root
 
 Xóa user ubuntu
 ```
-userdel ubuntu
-rm -rf /home/ubuntu
+userdel cloud
+rm -rf /home/cloud
 ```
 
 
@@ -209,9 +209,9 @@ echo "export LC_ALL=C" >>  ~/.bashrc
 
 Thực hiện
 ```
-echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf 
-echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf 
-echo "net.ipv6.conf.lo.disable_ipv6 = 1" >> /etc/sysctl.conf
+echo "net.ipv6.conf.all.disable_ipv6 = 0" >> /etc/sysctl.conf 
+echo "net.ipv6.conf.default.disable_ipv6 = 0" >> /etc/sysctl.conf 
+echo "net.ipv6.conf.lo.disable_ipv6 = 0" >> /etc/sysctl.conf
 sysctl -p
 ```
 
@@ -278,7 +278,7 @@ rm -rf /etc/netplan
 
 Cài đặt ifupdown
 ```
-apt-get update
+apt-get update -y
 apt-get install -y ifupdown
 ```
 
@@ -289,6 +289,8 @@ auto lo
 iface lo inet loopback
 auto eth0
 iface eth0 inet dhcp
+iface eth0 inet6 dhcp
+up ip -6 route add ::/0 dev eth0
 EOF
 ```
 
