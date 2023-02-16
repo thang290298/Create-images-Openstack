@@ -4,30 +4,30 @@
 
 ### 1. Khởi tạo ổ cứng sử dụng cho máy ảo:
 
-<img src = "Images\Centos7-app\1.png">
-<img src = "Images\Centos7-app\2.png">
-<img src = "Images\Centos7-app\3.png">
-<img src = "Images\Centos7-app\4.png">
+<img src = "..\Images\Centos7-app\1.png">
+<img src = "..\Images\Centos7-app\2.png">
+<img src = "..\Images\Centos7-app\3.png">
+<img src = "..\Images\Centos7-app\4.png">
 
 ### 2. thực hiện khởi tạo VM
 -  `Instances` -> `+` sau đó thực hiện các bước khởi tạo sau: 
-<img src = "Images\Centos7-app\5.png">
-<img src = "Images\Centos7-app\6.png">
+<img src = "..\Images\Centos7-app\5.png">
+<img src = "..\Images\Centos7-app\6.png">
 
   - Lựa chọn `Custom` và điền các thông tin: Name, VCPU, RAM, HDD, Network rồi chọn `Create`:
-<img src = "Images\Centos7-app\7.png">
+<img src = "..\Images\Centos7-app\7.png">
 - Mount ISO tiến hành cài đặt OS
-<img src = "Images\Centos7-app\8.png">
+<img src = "..\Images\Centos7-app\8.png">
 - chỉnh lại thứ tự boot
-<img src = "Images\Centos7-app\9.png">
+<img src = "..\Images\Centos7-app\9.png">
 
 ### 3. Tạo `Snapshots` trước khi cài đặt OS
-<img src = "Images\Centos7-app\12.png">
+<img src = "..\Images\Centos7-app\12.png">
 
 ### 4. Bật máy ảo và Console vào để cài đặt OS
 
-<img src = "Images\Centos7-app\10.png">
-<img src = "Images\Centos7-app\11.png">
+<img src = "..\Images\Centos7-app\10.png">
+<img src = "..\Images\Centos7-app\11.png">
 
 ## Bước 2: Cài Đặt Centos 7
 
@@ -105,7 +105,7 @@
 
 Truy cập Settings > XML > EDIT SETTINGS
 
-<img src = "Images\Centos7-app\13.png">
+<img src = "..\Images\Centos7-app\13.png">
 
 Nếu đã tồn tại channel đổi port channel này về port='2' và add channel bình thường
 
