@@ -10,73 +10,73 @@
 
 ## Phần 1: Tạo mới VM Debian 11 (WebvirtCloud)
 ### Bước 1: Tạo mới disk
-<img src = "Images\debian11\1.png">
+<img src = "..\Images\debian11\1.png">
 
 ### Bước 2: Tạo mới VM với cấu hình 2 vCPU, 2 GB RAM
-<img src = "Images\debian11\2.png">
+<img src = "..\Images\debian11\2.png">
 
 ### Bước 3: Mount bản cài Debian 11
-<img src = "Images\debian11\3.png">
+<img src = "..\Images\debian11\3.png">
 
 ### Bước 4: Snapshot VM (NoOS)
-<img src = "Images\debian11\4.png">
+<img src = "..\Images\debian11\4.png">
 
 ### Bước 5: Khởi động VM
-<img src = "Images\debian11\5.png">
+<img src = "..\Images\debian11\5.png">
 
 ### Bước 6: Truy cập Console
-<img src = "Images\debian11\6.png">
+<img src = "..\Images\debian11\6.png">
 
 ### Bước 7: Cài đặt Debian 11 với các lựa chọn như sau
 - Chọn `Install`
-<img src = "Images\debian11\7.png">
+<img src = "..\Images\debian11\7.png">
 
 - Chọn `English`
-<img src = "Images\debian11\8.png">
-<img src = "Images\debian11\9.png">
-<img src = "Images\debian11\10.png">
-<img src = "Images\debian11\10.1.png">
-<img src = "Images\debian11\10.2.png">
-<img src = "Images\debian11\10.3.png">
-<img src = "Images\debian11\10.4.png">
+<img src = "..\Images\debian11\8.png">
+<img src = "..\Images\debian11\9.png">
+<img src = "..\Images\debian11\10.png">
+<img src = "..\Images\debian11\10.1.png">
+<img src = "..\Images\debian11\10.2.png">
+<img src = "..\Images\debian11\10.3.png">
+<img src = "..\Images\debian11\10.4.png">
 
 - Đặt `Hostname` và `domain`
   - Hostname
-<img src = "Images\debian11\11.png">
+<img src = "..\Images\debian11\11.png">
   - Domain
-<img src = "Images\debian11\12.png">
+<img src = "..\Images\debian11\12.png">
 
 - Set `Password` user Root
-<img src = "Images\debian11\13.png">
+<img src = "..\Images\debian11\13.png">
 
 - Điền `Full name` thông tin `new user`
-<img src = "Images\debian11\14.png">
+<img src = "..\Images\debian11\14.png">
 
 - `Username` cho `new user`
-<img src = "Images\debian11\15.png">
+<img src = "..\Images\debian11\15.png">
 
 - Set `Password` user Root
-<img src = "Images\debian11\16.png">
+<img src = "..\Images\debian11\16.png">
 
 - Chia phân vùng disk
-<img src = "Images\debian11\17.png">
-<img src = "Images\debian11\18.png">
-<img src = "Images\debian11\19.png">
-<img src = "Images\debian11\20.png">
-<img src = "Images\debian11\21.png">
-<img src = "Images\debian11\22.png">
-<img src = "Images\debian11\23.png">
-<img src = "Images\debian11\24.png">
-<img src = "Images\debian11\25.png">
-<img src = "Images\debian11\26.png">
-<img src = "Images\debian11\27.png">
-<img src = "Images\debian11\28.png">
-<img src = "Images\debian11\29.png">
-<img src = "Images\debian11\30.png">
-<img src = "Images\debian11\31.png">
+<img src = "..\Images\debian11\17.png">
+<img src = "..\Images\debian11\18.png">
+<img src = "..\Images\debian11\19.png">
+<img src = "..\Images\debian11\20.png">
+<img src = "..\Images\debian11\21.png">
+<img src = "..\Images\debian11\22.png">
+<img src = "..\Images\debian11\23.png">
+<img src = "..\Images\debian11\24.png">
+<img src = "..\Images\debian11\25.png">
+<img src = "..\Images\debian11\26.png">
+<img src = "..\Images\debian11\27.png">
+<img src = "..\Images\debian11\28.png">
+<img src = "..\Images\debian11\29.png">
+<img src = "..\Images\debian11\30.png">
+<img src = "..\Images\debian11\31.png">
 ### Bước 8: Tắt VM, chỉnh lại BOOT OPTION
 
-<img src = "Images\debian11\32.png">
+<img src = "..\Images\debian11\32.png">
 
 - Vào `Setting` chọn lại `Boot order`
   - Chỉnh sửa file .xml của máy ảo, bổ sung thêm channel trong (để máy host giao tiếp với máy ảo sử dụng qemu-guest-agent), sau đó save lại
@@ -90,7 +90,7 @@
  </channel>
 </devices>
 ```
-<img src = "Images\debian11\33.png">
+<img src = "..\Images\debian11\33.png">
 
 ### Bước 9: Truy cập VM, kiểm tra các dịch vụ
 
@@ -104,7 +104,7 @@ Lưu ý nếu dịch vụ SSH không khởi động được, thực hiện
 sudo ssh-keygen -A
 sudo systemctl restart sshd
 ```
-<img src = "Images\debian11\34.png">
+<img src = "..\Images\debian11\34.png">
 
 ## Phần 2: Chuẩn bị môi trường Image Debian 11
 ### Bước 1: Thiết lập SSH

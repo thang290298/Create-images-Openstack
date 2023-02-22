@@ -218,8 +218,8 @@ do
    if [ \$? -ne 0 ]
    then
        touch /etc/sysconfig/network-scripts/ifcfg-\$iface
-       echo -e "DEVICE=\$iface\nBOOTPROTO=dhcp\nONBOOT=yes" > /etc/sysconfig/network-scripts/ifcfg-\$iface
-       ifup \$iface
+       echo -e "DEVICE=\$iface\nBOOTPROTO=dhcp\nONBOOT=yes\nIPV6INIT=yes\nIPV6_AUTOCONF=yes" > /etc/sysconfig/network-scripts/ifcfg-\$iface
+       ifup \$iface && ip -6 route add ::/0 dev \$iface metric 1
    fi
 done
 EOF
@@ -267,7 +267,7 @@ vi /etc/resolv.conf
     ```
 - Cài đặt CMDlog và  welcome Display
 ```
-curl -Lso- https://raw.githubusercontent.com/thang290298/CMD-Log/main/cmdlog.sh | bash
+curl -Lso- https://raw.githubusercontent.com/thang290298/Ghi-chep-Logs/main/CMD-Logs/cmdlog.sh | bash
 wget https://raw.githubusercontent.com/thang290298/Create-images-Openstack/main/Linux-Login.sh -O /etc/profile.d/linux-login.sh && chmod +x /etc/profile.d/linux-login.sh
 
 ```
