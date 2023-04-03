@@ -210,7 +210,7 @@ rm -f /etc/sysconfig/network-scripts/ifcfg-eth0
 
 - Để sau khi boot máy ảo, có thể nhận đủ các NIC gắn vào:
 
-```shsh 
+```sh
 cat << EOF >> /etc/rc.local
 for iface in \$(ip -o link | cut -d: -f2 | tr -d ' ' | grep ^eth)
 do
@@ -219,8 +219,9 @@ do
    then
        touch /etc/sysconfig/network-scripts/ifcfg-\$iface
        echo -e "DEVICE=\$iface\nBOOTPROTO=dhcp\nONBOOT=yes\nIPV6INIT=yes\nIPV6_AUTOCONF=yes" > /etc/sysconfig/network-scripts/ifcfg-\$iface
-       ifup \$iface && ip -6 route add ::/0 dev \$iface metric 1
+       ifup \$iface
    fi
+   ip -6 route add ::/0 dev \$iface metric 1
 done
 EOF
 ```

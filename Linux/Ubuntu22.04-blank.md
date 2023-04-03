@@ -293,7 +293,6 @@ iface lo inet loopback
 auto eth0
 iface eth0 inet dhcp
 iface eth0 inet6 dhcp
-up ip -6 route add ::/0 dev eth0
 EOF
 ```
 
@@ -318,46 +317,6 @@ mv netplug /etc/netplug/netplug
 
 chmod +x /etc/netplug/netplug
 ```
-
-### Bước 2: Disable snapd service
-Kiểm tra snap:
-```
-df -H
-```
-
-![](../Images/Ubuntu2204/31.png)
-
-List danh sách snap
-```
-snap list
-```
-![](../Images/Ubuntu2204/32.png)
-
-Để xóa, ta sử dụng lệnh `snap remove <package>`: `lxd` -> `core18` -> `snapd`
-```
-snap remove lxd
-snap remove core20
-snap remove snapd
-```
-
-Remove snapd package
-```
-apt purge snapd -y
-```
-
-Xóa các thự mục snap
-```
-rm -rf ~/snap
-rm -rf /snap
-rm -rf /var/snap
-rm -rf /var/lib/snapd
-```
-
-Kiểm tra lại:
-```
-df -H
-```
-![](../Images/Ubuntu2204/33.png)
 
 ### Bước 3: Thiết lập gói cloud-init
 
@@ -388,18 +347,6 @@ dpkg-reconfigure cloud-init
 
 ![](../Images/Ubuntu2204/34.png)
 
-
-Clean cấu hình và restart service
-
-```
-cloud-init clean
-systemctl restart cloud-init
-systemctl enable cloud-init
-systemctl status cloud-init
-```
-
-Lưu ý: Việc restart có thể mất 2-3 phút hoặc hơn (Nếu quá lâu có thể bỏ qua bước restart cloud-init)
-
 ### Bước 4: Cài đặt qemu-agent
 
 Chú ý: qemu-guest-agent là một daemon chạy trong máy ảo, giúp quản lý và hỗ trợ máy ảo khi cần (có thể cân nhắc việc cài thành phần này lên máy ảo)
@@ -421,42 +368,11 @@ service qemu-guest-agent status
 ### Bước 5:Cài đặt CMDlog và  welcome Display
 ```
 curl -Lso- https://raw.githubusercontent.com/thang290298/Ghi-chep-Logs/main/CMD-Logs/cmdlog.sh | bash
-wget https://raw.githubusercontent.com/thang290298/Create-images-Openstack/main/Linux-Login.sh -O /etc/profile.d/linux-login.sh && chmod +x /etc/profile.d/linux-login.sh
 
 ```
 Log out rồi login lại kiểm tra:
   - Log cmd: /var/log/cmdlog.log
-  - Giao diện sau khi login:
-      ```
-    Welcome to Cloud365 | nhanhoa.com
 
-    Tue 23 Mar 2221 03:04:17 PM +07
-
-    ______ __                   __ _____  _____  ______
-    / ____// /____   __  __ ____/ /|__  / / ___/ / ____/
-    / /    / // __ \ / / / // __  /  /_ < / __ \ /___ \
-    / /___ / // /_/ // /_/ // /_/ / ___/ // /_/ /____/ /
-    \____//_/ \____/ \__,_/ \__,_/ /____/ \____//_____/
-
-    * Trang chu NhanHoa : https://nhanhoa.com/
-    * Cloud365          : https://cloud365.vn/
-    * Portal            : https://portal.cloud365.vn/
-    * Huong dan su dung : https://support.cloud365.vn/
-    * Email ho tro      : support@nhanhoa.com
-
-    *----------------------------------------------------*
-
-    root@cloud:~# 
-    ```
-Kiểm tra lỗ hổng CVE-2221 và dọn dẹp
-```
-sudoedit -s /
-```
-- Kết quả trả ra như sau:
-```
-TH1: "sudoedit: /: not a regular file" -> sudo có lỗ hổng
-TH2:  "usage: sudoedit [-AknS] [-r role] [-t type] [-C num] [-g group] [-h host] [-p prompt] [-T timeout] [-u user] file" -> sudo đã được vá.
-```
 - Clear toàn bộ history
 ```
 apt-get clean all
@@ -464,6 +380,14 @@ rm -f /var/log/wtmp /var/log/btmp
 > /var/log/cmdlog.log
 history -c
 
+```
+Clean cấu hình và restart service
+
+```
+cloud-init clean
+systemctl restart cloud-init
+systemctl enable cloud-init
+systemctl status cloud-init
 ```
 - Tắt VM
 ```

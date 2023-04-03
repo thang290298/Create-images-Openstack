@@ -270,7 +270,7 @@ Log out rồi login lại kiểm tra:
 
 - CMD Log thực hiện theo tài liệu tại [đây](https://news.cloud365.vn/tools-log-all-command-of-user-in-linux/)
 ```
-curl -Lso- https://raw.githubusercontent.com/thang290298/CMD-Log/main/cmdlog.sh | bash
+curl -Lso- https://raw.githubusercontent.com/thang290298/Ghi-chep-Logs/main/CMD-Logs/cmdlog.sh | bash
 ```
 
 ### Bước 4: Thiết lập gói cloud-init
