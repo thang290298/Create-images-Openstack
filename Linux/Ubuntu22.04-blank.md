@@ -299,7 +299,13 @@ EOF
 Lưu ý
 - Khởi động lại, kiểm tra SSH
 
-### Bước 8: Tắt VM, tạo snapshot `OSBegin`
+### Bước 8: kiểm tra định dạng disk os
+- Chỉ định disk cài đặt OS sử dụng định dạng `GPT`
+- Sử dụng parted để kiểm tra định dạng disk hiện tại
+```sh
+sudo parted -l
+```
+### Bước 9: Tắt VM, tạo snapshot `OSBegin`
 
 ![](../Images/Ubuntu2204/30.png)
 

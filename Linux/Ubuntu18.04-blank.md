@@ -257,7 +257,7 @@ Swap:             0           0           0
 apt-get update -y 
 apt-get upgrade -y 
 apt-get dist-upgrade -y
-apt-get autoremove 
+apt-get autoremove -y
 ```
 
 
@@ -316,47 +316,8 @@ mv netplug /etc/netplug/netplug
 chmod +x /etc/netplug/netplug
 ```
 
-### Bước 2: Disable snapd service
-Kiểm tra snap:
-```
-df -H
-```
 
-![](../Images/Ubuntu18.04/31.png)
-
-List danh sách snap
-```
-snap list
-```
-![](../Images/Ubuntu18.04/32.png)
-
-Để xóa, ta sử dụng lệnh `snap remove <package>`: `lxd` -> `core18` -> `snapd`
-```
-snap remove lxd
-snap remove core18
-snap remove snapd
-```
-
-Remove snapd package
-```
-apt purge snapd -y
-```
-
-Xóa các thự mục snap
-```
-rm -rf ~/snap
-rm -rf /snap
-rm -rf /var/snap
-rm -rf /var/lib/snapd
-```
-
-Kiểm tra lại:
-```
-df -H
-```
-![](../Images/Ubuntu18.04/33.png)
-
-### Bước 3: Thiết lập gói cloud-init
+### Bước 2: Thiết lập gói cloud-init
 
 Xóa file cấu hình cloud-init cũ
 ```
@@ -390,9 +351,9 @@ Clean cấu hình và restart service
 
 ```
 cloud-init clean
-systemctl restart cloud-init
 systemctl enable cloud-init
 systemctl status cloud-init
+systemctl restart cloud-init
 ```
 
 Lưu ý: Việc restart có thể mất 2-3 phút hoặc hơn (Nếu quá lâu có thể bỏ qua bước restart cloud-init)
@@ -417,42 +378,7 @@ service qemu-guest-agent status
 ```
 ### Bước 5:Cài đặt CMDlog và  welcome Display
 ```
-curl -Lso- https://raw.githubusercontent.com/thang290298/CMD-Log/main/cmdlog.sh | bash
-wget https://raw.githubusercontent.com/thang290298/Create-../Images-Openstack/main/Linux-Login.sh -O /etc/profile.d/linux-login.sh && chmod +x /etc/profile.d/linux-login.sh
-
-```
-Log out rồi login lại kiểm tra:
-  - Log cmd: /var/log/cmdlog.log
-  - Giao diện sau khi login:
-      ```
-    Welcome to Cloud365 | nhanhoa.com
-
-    Tue 23 Mar 2021 03:04:17 PM +07
-
-    ______ __                   __ _____  _____  ______
-    / ____// /____   __  __ ____/ /|__  / / ___/ / ____/
-    / /    / // __ \ / / / // __  /  /_ < / __ \ /___ \
-    / /___ / // /_/ // /_/ // /_/ / ___/ // /_/ /____/ /
-    \____//_/ \____/ \__,_/ \__,_/ /____/ \____//_____/
-
-    * Trang chu NhanHoa : https://nhanhoa.com/
-    * Cloud365          : https://cloud365.vn/
-    * Portal            : https://portal.cloud365.vn/
-    * Huong dan su dung : https://support.cloud365.vn/
-    * Email ho tro      : support@nhanhoa.com
-
-    *----------------------------------------------------*
-
-    root@cloud:~# 
-    ```
-Kiểm tra lỗ hổng CVE-2021 và dọn dẹp
-```
-sudoedit -s /
-```
-- Kết quả trả ra như sau:
-```
-TH1: "sudoedit: /: not a regular file" -> sudo có lỗ hổng
-TH2:  "usage: sudoedit [-AknS] [-r role] [-t type] [-C num] [-g group] [-h host] [-p prompt] [-T timeout] [-u user] file" -> sudo đã được vá.
+curl -Lso- https://raw.githubusercontent.com/thang290298/Ghi-chep-Logs/main/CMD-Logs/cmdlog.sh | bash
 ```
 - Clear toàn bộ history
 ```
