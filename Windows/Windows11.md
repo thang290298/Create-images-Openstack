@@ -43,7 +43,7 @@ sử dụng các Options:
 
 ```
 [DEFAULT]
-username=Administrators
+username=Administrator
 groups=Administrators
 inject_user_password=true
 first_logon_behaviour=no

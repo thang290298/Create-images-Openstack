@@ -60,7 +60,7 @@ Installation" để bắt đầu chạy máy ảo
 
 ```
 [DEFAULT]
-username=Administrators
+username=Administrator
 groups=Administrators
 inject_user_password=true
 first_logon_behaviour=no
