@@ -171,8 +171,11 @@ Retype new UNIX password: <root_passwd>
 
 Cấu hình cho phép ssh bằng user root /etc/ssh/sshd_config
 ```
+sed -i 's/#ListenAddress 0.0.0.0/ListenAddress 0.0.0.0/'g /etc/ssh/sshd_config
 sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/'g /etc/ssh/sshd_config
-systemctl restart ssh
+sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/'g /etc/ssh/sshd_config
+sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/'g /etc/ssh/sshd_config
+systemctl restart sshd
 ```
 
 Disable firewalld
@@ -181,20 +184,6 @@ systemctl disable ufw
 systemctl stop ufw
 systemctl status ufw
 ```
-
-Tắt VM thưc hiện snapshot 
-```
-init 0
-```
-
-Login lại bằng user root
-
-Xóa user cloud
-```
-userdel cloud
-rm -rf /home/cloud
-```
-
 
 ### Bước 2: Điều chỉnh Timezone
 
@@ -225,43 +214,34 @@ cat /proc/sys/net/ipv6/conf/all/disable_ipv6
 
 Lưu ý: Kết quả ra `1` => Tắt thành công, `0` tức IPv6 vẫn bật
 
-### Bước 4: Kiểm tra và xóa phân vùng Swap
 
-Kiểm tra swap:
-```
-cat /proc/swaps
-
-Filename                                Type            Size    Used    Priority
-/swap.img                               file            2209084 780     -2
-```
-
-Xóa swap
-```
-swapoff -a
-rm -rf /swap.img
-```
-
-Xóa cấu hình swap file trong file /etc/fstab
-```
-sed -Ei '/swap.img/d' /etc/fstab
-```
-
-Kiểm tra lại:
-```
-free -m
-              total        used        free      shared  buff/cache   available
-Mem:            981         134         223           0         623         690
-Swap:             0           0           0
-```
-
-### Bước 5: Cập nhật gói, update OS
+### Bước 4: Cập nhật gói, update OS
 
 ```
 apt-get update -y 
 apt-get upgrade -y 
 apt-get dist-upgrade -y
 apt-get autoremove 
+sudo apt install nfs-common net-tools wget vim -y
 ```
+
+### Bước 5: thực hiện reboot và xóa user cloud
+Tắt VM thưc hiện snapshot 
+```
+init 0
+```
+Tạo snapshot `basic`
+
+Login lại bằng user root
+
+Xóa user cloud
+```
+userdel cloud
+rm -rf /home/cloud
+```
+
+
+
 
 
 ### Bước 6: Cấu hình để instance báo log ra console, đổi tên Card mạng về eth* thay vì ens, eno
@@ -292,7 +272,6 @@ auto lo
 iface lo inet loopback
 auto eth0
 iface eth0 inet dhcp
-iface eth0 inet6 dhcp
 EOF
 ```
 
@@ -328,6 +307,7 @@ chmod +x /etc/netplug/netplug
 
 Xóa file cấu hình cloud-init cũ
 ```
+sudo apt purge cloud-init -y
 rm -rf /etc/cloud/
 rm -rf /var/lib/cloud/
 ```
